@@ -29,6 +29,7 @@ function getUsers(){
     }
 
 
+    
     const newUser = {
         name: "Reinaldo Ramos",
         avatar: "https://picsum.photos/200/300",
