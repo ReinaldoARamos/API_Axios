@@ -29,7 +29,15 @@ function getUsers(){
     }
 
 
-    
+    function deleteUser(){
+        axios.delete(`${url}/1`)
+        .then(response => {
+            const data = response.data
+            userName.textContent = data.name
+        })
+        .catch(error => console.log(error))
+    }
+
     const newUser = {
         name: "Reinaldo Ramos",
         avatar: "https://picsum.photos/200/300",
@@ -39,3 +47,4 @@ function getUsers(){
     getUser();
     //getUsers();
     //addNewUser(newUser);
+    deleteUser();
