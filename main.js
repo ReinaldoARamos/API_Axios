@@ -11,16 +11,26 @@ function getUsers(){
 
     }
 
+
     function addNewUser(){
         axios.post(url, newUser)
-        .then(responde => {
+        .then(response => {
             console.log(response)
         })
         .catch(error => console.log(error))
     }
 
     function  getUser() {
-        axios.get(`${url}/1`)
+        axios.get(`${url}/9`)
+        .then(response => {
+            const data = response.data
+            userName.textContent = data.name
+        })
+        .catch(error => console.log(error))
+    }
+
+    function  deleteUser() {
+        axios.delete(`${url}/10`)
         .then(response => {
             const data = response.data
             userName.textContent = data.name
@@ -29,22 +39,14 @@ function getUsers(){
     }
 
 
-    function deleteUser(){
-        axios.delete(`${url}/1`)
-        .then(response => {
-            const data = response.data
-            userName.textContent = data.name
-        })
-        .catch(error => console.log(error))
-    }
-
+    
     const newUser = {
         name: "Reinaldo Ramos",
         avatar: "https://picsum.photos/200/300",
         city: "Rio de Janeiro"
     }
 
-    getUser();
-    //getUsers();
+    //getUser();
+    getUsers();
     //addNewUser(newUser);
     deleteUser();
